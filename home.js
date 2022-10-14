@@ -1,9 +1,9 @@
 const axios = require("axios");
 
-const getPokemon = async () => {
-  const pokemon1 = axios.get( "https://pokeapi.co/api/v2/pokemon/2")
-  const pokemon2 = axios.get( "https://pokeapi.co/api/v2/pokemon/100")
-  const pokemon3 = axios.get( "https://pokeapi.co/api/v2/pokemon/11")
+const getPokemon = async (id1, id2, id3) => {
+  const pokemon1 = axios.get(`https://pokeapi.co/api/v2/pokemon/${id1}`)
+  const pokemon2 = axios.get(`https://pokeapi.co/api/v2/pokemon/${id2}`)
+  const pokemon3 = axios.get(`https://pokeapi.co/api/v2/pokemon/${id3}`)
 
   const pokemons = await Promise.all([pokemon1, pokemon2, pokemon3])
 
@@ -33,8 +33,6 @@ const getPokemon = async () => {
     console.log("====================")
   }
 
-
-
 const listCaughtPokedex = (pokemons) => {
 let n1 = 0
 
@@ -56,4 +54,4 @@ listCaughtPokedex(pokemons)
 
 }
 
-getPokemon()
+getPokemon(1, 23, 99) //ex: getpokemon(1, 23, 99) = (bulbasaur ,ekans ,kingler)
